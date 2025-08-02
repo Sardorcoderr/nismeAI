@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Platform Login</title>
+<link rel="shortcut icon" href="/media/Снимок экрана 2025-07-17 222137.png" type="image/x-icon">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        
+        :root {
+            --primary: #10a37f;
+            --primary-hover: #0d8a6a;
+            --dark: #202123;
+            --light: #f7f7f8;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #fff;
+            color: var(--dark);
+            overflow-x: hidden;
+        }
+        
+        .bg-gradient {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8ee 100%);
+        }
+        
+        .login-container {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+        }
+        
+        .login-container:hover {
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.12);
+        }
+        
+        .input-field {
+            transition: border 0.2s ease;
+        }
+        
+        .input-field:focus {
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(16, 163, 127, 0.1);
+        }
+        
+        .btn-primary {
+            background-color: var(--primary);
+            transition: all 0.2s ease;
+        }
+        
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-1px);
+        }
+        
+        .btn-primary:active {
+            transform: translateY(0);
+        }
+        
+        .social-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .social-btn:hover {
+            transform: translateY(-1px);
+        }
+        
+        .wave-animation {
+            animation: wave 2s infinite;
+        }
+        
+        @keyframes wave {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+        
+        .toggle-password {
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .toggle-password:hover {
+            color: var(--primary);
+        }
+        
+        .error-message {
+            animation: shake 0.5s;
+        }
+        
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            20%, 60% { transform: translateX(-5px); }
+            40%, 80% { transform: translateX(5px); }
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center bg-gradient">
+    <div class="login-container bg-white rounded-lg p-8 w-full max-w-md mx-4">
+        <div class="text-center mb-8">
+            <div class="flex justify-center mb-4 wave-animation">
+                <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#10a37f" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 2 L2 8 L12 14 L22 8 L12 2 Z"></path>
+                    <path d="M2 8 L12 14 L22 8"></path>
+                    <path d="M12 14 L12 22"></path>
+                </svg>
+            </div>
+            <h1 class="text-3xl font-bold text-gray-800 mb-2">Welcome Back</h1>
+            <p class="text-gray-600">Sign in to your account to continue</p>
+        </div>
+        
+        <form id="loginForm" class="space-y-5">
+            <div class="space-y-1">
+                <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+                <div class="relative">
+                    <input type="email" id="email" name="email" required 
+                           class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                           placeholder="your@email.com">
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                            <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="space-y-1">
+                <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+                <div class="relative">
+                    <input type="password" id="password" name="password" required 
+                           class="input-field w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none"
+                           placeholder="••••••••">
+                    <button type="button" class="toggle-password absolute inset-y-0 right-0 flex items-center pr-3 text-gray-400">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                            <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                            <path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="flex items-center justify-between">
+                <div class="flex items-center">
+                    <input id="remember-me" name="remember-me" type="checkbox" 
+                           class="h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded">
+                    <label for="remember-me" class="ml-2 block text-sm text-gray-700">Remember me</label>
+                </div>
+                <a href="#" class="text-sm text-primary hover:underline">Forgot password?</a>
+            </div>
+            
+            <div id="errorMessage" class="hidden py-2 px-3 bg-red-50 text-red-700 rounded-lg text-sm"></div>
+            
+            <button type="submit" class="btn-primary w-full py-3 px-4 text-white font-medium rounded-lg flex items-center justify-center">
+                <span>Sign In</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="ml-2 h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                    <path fill-rule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                </svg>
+            </button>
+        </form>
+        
+        <div class="mt-6">
+            <div class="relative">
+                <div class="absolute inset-0 flex items-center">
+                    <div class="w-full border-t border-gray-300"></div>
+                </div>
+                <div class="relative flex justify-center text-sm">
+                    <span class="px-2 bg-white text-gray-500">Or continue with</span>
+                </div>
+            </div>
+            
+            <div class="mt-6 grid grid-cols-2 gap-3">
+                <a href="#" class="social-btn w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path fill-rule="evenodd" d="M10 0C4.477 0 0 4.477 0 10c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.933.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C17.14 18.163 20 14.418 20 10c0-5.523-4.477-10-10-10z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+                <a href="#" class="social-btn w-full inline-flex justify-center py-2 px-4 border border-gray-300 rounded-lg shadow-sm bg-white text-sm font-medium text-gray-700 hover:bg-gray-50">
+                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" aria-hidden="true">
+                        <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <p class="mt-8 text-center text-sm text-gray-600">
+            Don't have an account? <a href="#" class="text-primary font-medium hover:underline">Sign up</a>
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const loginForm = document.getElementById('loginForm');
+            const errorMessage = document.getElementById('errorMessage');
+            const togglePassword = document.querySelector('.toggle-password');
+            const passwordInput = document.getElementById('password');
+            
+            // Toggle password visibility
+            togglePassword.addEventListener('click', function() {
+                const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                passwordInput.setAttribute('type', type);
+                
+                // Toggle icon
+                this.innerHTML = type === 'password' ? 
+                    '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path d="M10 12a2 2 0 100-4 2 2 0 000 4z" /><path fill-rule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clip-rule="evenodd" /></svg>' :
+                    '<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3.707 2.293a1 1 0 00-1.414 1.414l14 14a1 1 0 001.414-1.414l-1.473-1.473A10.014 10.014 0 0019.542 10C18.268 5.943 14.478 3 10 3a9.958 9.958 0 00

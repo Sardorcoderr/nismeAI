@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+    <html lang="uz">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Nisme AI - YouTube video translation</title>
+        <!-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"> -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+        <link rel="stylesheet" href="style.css">
+<link rel="shortcut icon" href="/media/Снимок экрана 2025-07-17 222137.png" type="image/x-icon">
+
+    <!-- <link rel="icon" class="logo-icon" href="/"> -->
+
+    </head>
+    <body>
+     
+    <div class="gradient-background"></div>
+    <div class="app-container">
+        <button class="mobile-menu-btn">
+            <i class="fas fa-bars"></i>
+        </button>
+        <meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <div class="logo">
+                    <span class="logo-icon">N</span>
+                    <span class="logo-text">Nisme</span>
+                </div>
+                <!-- <button class="new-chat-btn"> -->
+                    <!-- <i class="fas fa-plus"></i> -->
+                    <!-- <span>New conversation</span> -->
+                </button>
+            </div><br>
+           
+            <div class="chat-history">
+                <!-- Suhbatlar tarixi -->
+            </div>
+            <div class="sidebar-footer">
+                <div class="user-profile">
+                    <!-- <div class="avatar">U</div> -->
+                    <!-- <ul class="dropdown-menu" aria-labelledby="userMenu">
+                        <li><a class="dropdown-item" href="#" onclick="logout()">Exit</a></li>
+                      </ul> -->
+                      <!-- 2. Button -->
+<div id="g_id_onload"
+data-client_id="YOUR_GOOGLE_CLIENT_ID"
+data-login_uri="http://localhost:8000/auth/google/callback"
+data-auto_prompt="false">
+</div>
+
+<div class="g_id_signin"
+data-type="standard"
+data-shape="pill"
+data-theme="outline"
+data-text="sign_in_with"
+data-size="large">
+</div>
+                    <span class="username">Log in</span>
+                    
+                    <div class="dropdown">
+                        <!-- <button class="btn btn-secondary dropdown-toggle" type="button" id="userMenu" data-bs-toggle="dropdown" aria-expanded="false"> -->
+                          <!-- <img src="" id="userAvatar" style="width: 30px; height: 30px; border-radius: 50%;" /> -->
+                        <!-- </button> -->
+                        <!-- <ul class="dropdown-menu" aria-labelledby="userMenu">
+                          <li><a class="dropdown-item" href="#" onclick="logout()">Exit</a></li>
+                        </ul> -->
+                      </div>
+                      
+                </div>
+                
+            </div>
+            
+        </div>
+        <div class="main-content">
+            <div class="chat-container" id="chat-container">
+                <div class="welcome-message">
+                    <div class="avatar-large">
+                        <div class="avatar-inner">N</div>
+                    </div>
+                    <h1>Hello, I'm Nisme.</h1>
+                    <p></p>
+                    <div class="video-link-form">
+                        <input type="text" placeholder="Enter YouTube video link..." class="input-rounded" />
+                        <input type="text" placeholder="Enter TikTok video link..." class="input-rounded" />
+                        <button class="translate-button">Translate Video</button>
+                      </div>
+                      
+                    <!-- <div class="welcome-suggestions">
+                        <button class="suggestion-btn">YouTube video translation</button> -->
+                       <!-- YouTube video translation modal -->
+<!-- <div id="translationModal" class="modal hidden">
+    <div class="modal-content">
+      <h2>Translate YouTube Video</h2>
+      <label for="language">Choose Language:</label>
+      <select id="language">
+        <option value="uz">Uzbek</option>
+        <option value="en">English</option>
+        <option value="ru">Russian</option>
+        <option value="tr">Turkish</option>
+      </select>
+      <br />
+      <label for="youtubeUrl">YouTube Video URL:</label>
+      <input type="text" id="youtubeUrl" placeholder="Paste video URL here">
+      <button onclick="handleTranslate()">Translate</button>
+    </div>
+  </div> -->
+                     
+                    <!-- </div> -->
+                </div>
+
+</div>
+                <div class="disclaimer">
+                    Nisme AI - Smart assistant system
+
+                    <a href="#about" style="color: #8a8aff;">About Nisme.AI</a>
+                </div>
+                
+                <!-- <div class="message-input-container">
+                    <!-- <div class="input-box"> -->
+                        <!-- <textarea id="message-input" placeholder="Xabaringizni yozing..." rows="1"></textarea> -->
+                        <!-- <button id="send-btn" class="send-btn">
+                            <i class="fas fa-paper-plane"></i>
+                        </button> -->
+                    <!-- </div>
+                    <div class="disclaimer">
+                        Nisme AI - Aqlli yordamchi tizim
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <script src="script.js"></script>
+
+
+    <style>
+        /* About Popup Styles */
+        .about-popup {
+            color: #8a8aff;
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 80%;
+            max-width: 600px;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+        }
+        
+        .about-popup.active {
+            display: block;
+        }
+        
+        .about-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+        
+        .about-overlay.active {
+            display: block;
+        }
+        
+        .close-about {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: #8a8aff;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    </style>
+
+    <!-- <script src="scriptt.js"></script> -->
+</body>
+
+  
+  <script>
+  function handleTranslate() {
+    const lang = document.getElementById('language').value;
+    const url = document.getElementById('youtubeUrl').value;
+  
+    fetch('/api/translate/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ language: lang, url: url })
+    })
+    .then(res => {
+      if (res.status === 403) {
+        window.location.href = '/subscribe/';
+      } else if (res.ok) {
+        return res.json();
+      } else {
+        alert('Error occurred');
+      }
+    })
+    .then(data => {
+      if (data?.translated_text) {
+        alert("Translation ready!");
+        // optionally show result
+      }
+    });
+  }
+  </script>
+  
+                <!-- About Nisme.AI Popup -->
+                <div class="about-overlay" id="aboutOverlay"></div>
+                <div class="about-popup" id="aboutPopup">
+                    <h2>About Nisme.AI</h2>
+                    <p>Nisme AI project is an artificial intelligence (AI) that can translate videos on YouTube and TikTok in multiple <br> languages ​​(including Uzbek, English, Turkish, Russian, Chinese, Japanese, and Korean).</p>
+                    <!-- <p>Nisme.AI is an innovative artificial intelligence project designed to [your project description here].</p> -->
+                    <!-- <p>Key features:</p> -->
+                    <!-- <ul>
+                        <li>Feature 1</li>
+                        <li>Feature 2</li>
+                        <li>Feature 3</li>
+                    </ul>
+                    <p>Our mission is to [your mission statement].</p> -->
+                    <p style="color: #f01616;">We do not respond to any information or anything!</p>
+                    <button class="close-about" id="closeAbout">Okey</button>
+</html>
+<script>
+    // About section functionality
+    document.addEventListener('DOMContentLoaded', function() {
+        const aboutLink = document.querySelector('a[href="#about"]');
+        const aboutPopup = document.getElementById('aboutPopup');
+        const aboutOverlay = document.getElementById('aboutOverlay');
+        const closeAbout = document.getElementById('closeAbout');
+        
+        if (aboutLink) {
+            aboutLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                aboutPopup.classList.add('active');
+                aboutOverlay.classList.add('active');
+            });
+        }
+        
+        closeAbout.addEventListener('click', function() {
+            aboutPopup.classList.remove('active');
+            aboutOverlay.classList.remove('active');
+        });
+        
+        aboutOverlay.addEventListener('click', function() {
+            aboutPopup.classList.remove('active');
+            aboutOverlay.classList.remove('active');
+        });
+    });
+</script>
+        <!-- Rest of your HTML remains the same -->
