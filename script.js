@@ -4,6 +4,7 @@ const API_BASE_URL = "http://localhost:8000"; // Agar backend boshqa manzilda is
 // Global o'zgaruvchilar
 let currentChatId = null;
 let isWaitingForResponse = false;
+import { HashRouter } from 'react-router-dom';
 
 function logout() {
     localStorage.removeItem("isLoggedIn");
